@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/icon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="crypto screener" />
+    <title>Бесплатный скринер плотностей и уровней криптовалют с графиками для скальпинга на фьючерсах на бирже
+      Binance</title>
+    <style>
+      #about {
+        display: none;
+      }
+    </style>
+    <link rel="stylesheet" href="/build/bundle.css?15">
+    <script defer src="/build/bundle.js?15"></script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="about">
+      <div>
+        <img src="/telegram.svg" alt="Telegram" class="icon">
+        <a href="https://t.me/screener_support" title="Telegram">screener_support</a> предложения и пожелания по работе инструмента
+      </div>
+      <div>
+        <img src="/telegram.svg" alt="Telegram" class="icon">
+        <a href="https://t.me/tech_analysis_crypto_scalping" title="Telegram">tech_analysis_crypto_scalping</a> телеграм канал
+      </div>
+      <h1>Скринер уровней и плотностей на споте с графиками для скальпинга на фьючерсах Binance</h1>
+
+      <h2>Когда может быть полезен</h2>
+      <p>Может использоваться как дополнительный инструмент для определения входа в сделку при пробое уровня,
+        отскоке от уровня, работе с плотностями.</p>
+
+      <h2>Как работает</h2>
+      <p>Для работы используется публичное API криптовалютной биржи Binance. Все данные по спот рынку. В списке
+        монет только монеты которые одновременно присутствуют и на фьючерсах и на споте. Список монет
+        синхронизируется при каждом запуске.</p>
+      <p>Между сессиями в локальном хранилище браузера сохраняются все отрисованные пользовательские фигуры,
+        установленные звуковые уведомления о ценовых уровнях, текущий выбранный таймфрейм, режим отображения
+        графиков, текущая выбранная монета.</p>
+
+      <h3>Список монет</h3>
+      <p>Таблица со списком всех монет в правой области окна. Список может быть отсортирован по имени монеты или по
+        возрастанию разницы в процентах от уровня или цены крупного лимитного ордера (плотности) до текущей цены.</p>
+      <p>Избранное (звездочка) - интересуемые монеты могут быть добавлены в отдельные списки (до пяти)</p>
+      <p>1h, 4h, 1d - разница в процентах между текущей ценой и ценой самого ближайшего уровня.
+        Возможна сортировка по возрастанию по одной из колонок.</p>
+      <p>Order - показывает разницу в процентах между текущей ценой и ценой ближайшего к текущей цене крупного
+        лимитного ордера (плотности), если такой ордер был обнаружен. Возможна сортировка по колонке в порядке
+        возрастания.</p>
+
+      <h3>ТОП ордеров</h3>
+      <p>Таблица под списком монет. Первая колонка объем ордера, вторая - цена, третья - разница в процентах между
+        текущей ценой и ценой ордера.</p>
+      <p>В топ выбираются только крупные ордера из диапазона +-5% от текущей цены. Самые крупные, объемом более, чем
+        средний пятиминутный объем за прошедшие 24 часа, подсвечиваются фиолетовым цветом (также отрисовываются фиолетовым
+        ценовым уровнем на графике).</p>
+
+      <h3>График</h3>
+      <p>Возможно отображение от одного до четырех графиков одной монеты в одном окне.</p>
+      <p>Автоматически отрисовываются уровни поддержки и сопротивления. Неактуальные уровни (которые цена
+        пересекла) меняют цвет на серый.</p>
+      <p>Доступно рисование нескольких видов фигур: отрезок, луч, ценовой уровень. Удаление фигуры осуществляется
+        правой кнопкой мыши, удаление всех пользовательских фигур - кнопкой в интерфейсе.</p>
+      <p>На дневном таймфрейме отображаются только дневные уровни, на четырехчасовом - дневные и четырехчасовые, на
+        часовом и меньше отображаются все уровни.</p>
+      <p>Уровни старших таймфремов на графике младших таймфреймов выделены толщиной линии, например на часовом
+        графике, часовые уровни - это линии толщиной 1 пиксель, четырехчасовые уровни - линии в 2 пикселя, дневные
+        уровни - 3 пикселя.</p>
+      <p>Фиолетовыми уровнями отрисовываются крупные лимитные ордера. Начало линии ордера находится в точке момента
+        выставления ордера в стакане. Если ордер был выставлен раньше, чем запущен скринер, то линия начинается с
+        момента включения скринера.</p>
+      <img src="/help-ru.png" alt="Графики цен, топ ордеров" />
+
+      <h2>Горячие клавиши</h2>
+      <p>F1 - помощь</p>
+      <p>Esc - отмена рисования / закрытие диалогового окна</p>
+      <p>&larr; &rarr; - переключение таймфрейма выбранного графика</p>
+      <p>&uarr; &darr; - переключение между монетами в списке</p>
+      <p>Tab - переключение между графиками, если выбран режим отображения больше одного графика</p>
+      <p>+/- увеличение/уменьшение масштаба графика</p>
+
+      <div>
+        <span id="coin-list-switch">Монеты</span>
+        <div class="coin-list">
+          <a href="/1inch/" target="_blank">1inch</a> <a href="/aave/" target="_blank">aave</a> <a href="/ada/" target="_blank">ada</a> <a href="/akro/" target="_blank">akro</a> <a href="/algo/" target="_blank">algo</a> <a href="/alice/" target="_blank">alice</a> <a href="/alpha/" target="_blank">alpha</a> <a href="/anc/" target="_blank">anc</a> <a href="/ankr/" target="_blank">ankr</a> <a href="/ant/" target="_blank">ant</a> <a href="/ape/" target="_blank">ape</a> <a href="/api3/" target="_blank">api3</a> <a href="/arpa/" target="_blank">arpa</a> <a href="/ar/" target="_blank">ar</a> <a href="/ata/" target="_blank">ata</a> <a href="/atom/" target="_blank">atom</a> <a href="/audio/" target="_blank">audio</a> <a href="/avax/" target="_blank">avax</a> <a href="/axs/" target="_blank">axs</a> <a href="/bake/" target="_blank">bake</a> <a href="/bal/" target="_blank">bal</a> <a href="/band/" target="_blank">band</a> <a href="/bat/" target="_blank">bat</a> <a href="/bch/" target="_blank">bch</a> <a href="/bel/" target="_blank">bel</a> <a href="/blz/" target="_blank">blz</a> <a href="/bnb/" target="_blank">bnb</a> <a href="/bnx/" target="_blank">bnx</a> <a href="/btc/" target="_blank">btc</a> <a href="/bts/" target="_blank">bts</a> <a href="/c98/" target="_blank">c98</a> <a href="/celo/" target="_blank">celo</a> <a href="/celr/" target="_blank">celr</a> <a href="/chr/" target="_blank">chr</a> <a href="/chz/" target="_blank">chz</a> <a href="/comp/" target="_blank">comp</a> <a href="/coti/" target="_blank">coti</a> <a href="/crv/" target="_blank">crv</a> <a href="/ctk/" target="_blank">ctk</a> <a href="/ctsi/" target="_blank">ctsi</a> <a href="/cvc/" target="_blank">cvc</a> <a href="/dash/" target="_blank">dash</a> <a href="/dent/" target="_blank">dent</a> <a href="/dgb/" target="_blank">dgb</a> <a href="/dodo/" target="_blank">dodo</a> <a href="/doge/" target="_blank">doge</a> <a href="/dot/" target="_blank">dot</a> <a href="/dusk/" target="_blank">dusk</a> <a href="/dydx/" target="_blank">dydx</a> <a href="/egld/" target="_blank">egld</a> <a href="/enj/" target="_blank">enj</a> <a href="/ens/" target="_blank">ens</a> <a href="/eos/" target="_blank">eos</a> <a href="/etc/" target="_blank">etc</a> <a href="/eth/" target="_blank">eth</a> <a href="/fil/" target="_blank">fil</a> <a href="/flm/" target="_blank">flm</a> <a href="/flow/" target="_blank">flow</a> <a href="/ftm/" target="_blank">ftm</a> <a href="/ftt/" target="_blank">ftt</a> <a href="/gala/" target="_blank">gala</a> <a href="/gmt/" target="_blank">gmt</a> <a href="/grt/" target="_blank">grt</a> <a href="/gtc/" target="_blank">gtc</a> <a href="/hbar/" target="_blank">hbar</a> <a href="/hnt/" target="_blank">hnt</a> <a href="/hot/" target="_blank">hot</a> <a href="/icp/" target="_blank">icp</a> <a href="/icx/" target="_blank">icx</a> <a href="/imx/" target="_blank">imx</a> <a href="/iost/" target="_blank">iost</a> <a href="/iota/" target="_blank">iota</a> <a href="/iotx/" target="_blank">iotx</a> <a href="/kava/" target="_blank">kava</a> <a href="/klay/" target="_blank">klay</a> <a href="/knc/" target="_blank">knc</a> <a href="/ksm/" target="_blank">ksm</a> <a href="/lina/" target="_blank">lina</a> <a href="/link/" target="_blank">link</a> <a href="/lit/" target="_blank">lit</a> <a href="/lpt/" target="_blank">lpt</a> <a href="/lrc/" target="_blank">lrc</a> <a href="/ltc/" target="_blank">ltc</a> <a href="/luna/" target="_blank">luna</a> <a href="/mana/" target="_blank">mana</a> <a href="/mask/" target="_blank">mask</a> <a href="/matic/" target="_blank">matic</a> <a href="/mkr/" target="_blank">mkr</a> <a href="/mtl/" target="_blank">mtl</a> <a href="/near/" target="_blank">near</a> <a href="/neo/" target="_blank">neo</a> <a href="/nkn/" target="_blank">nkn</a> <a href="/ocean/" target="_blank">ocean</a> <a href="/ogn/" target="_blank">ogn</a> <a href="/omg/" target="_blank">omg</a> <a href="/one/" target="_blank">one</a> <a href="/ont/" target="_blank">ont</a> <a href="/people/" target="_blank">people</a> <a href="/qtum/" target="_blank">qtum</a> <a href="/ray/" target="_blank">ray</a> <a href="/reef/" target="_blank">reef</a> <a href="/ren/" target="_blank">ren</a> <a href="/rlc/" target="_blank">rlc</a> <a href="/rose/" target="_blank">rose</a> <a href="/rsr/" target="_blank">rsr</a> <a href="/rune/" target="_blank">rune</a> <a href="/rvn/" target="_blank">rvn</a> <a href="/sand/" target="_blank">sand</a> <a href="/sc/" target="_blank">sc</a> <a href="/sfp/" target="_blank">sfp</a> <a href="/shib/" target="_blank">shib</a> <a href="/skl/" target="_blank">skl</a> <a href="/snx/" target="_blank">snx</a> <a href="/sol/" target="_blank">sol</a> <a href="/srm/" target="_blank">srm</a> <a href="/stmx/" target="_blank">stmx</a> <a href="/storj/" target="_blank">storj</a> <a href="/sushi/" target="_blank">sushi</a> <a href="/sxp/" target="_blank">sxp</a> <a href="/theta/" target="_blank">theta</a> <a href="/tlm/" target="_blank">tlm</a> <a href="/tomo/" target="_blank">tomo</a> <a href="/trb/" target="_blank">trb</a> <a href="/trx/" target="_blank">trx</a> <a href="/unfi/" target="_blank">unfi</a> <a href="/uni/" target="_blank">uni</a> <a href="/vet/" target="_blank">vet</a> <a href="/waves/" target="_blank">waves</a> <a href="/woo/" target="_blank">woo</a> <a href="/xec/" target="_blank">xec</a> <a href="/xem/" target="_blank">xem</a> <a href="/xlm/" target="_blank">xlm</a> <a href="/xmr/" target="_blank">xmr</a> <a href="/xrp/" target="_blank">xrp</a> <a href="/xtz/" target="_blank">xtz</a> <a href="/yfi/" target="_blank">yfi</a> <a href="/zec/" target="_blank">zec</a> <a href="/zen/" target="_blank">zen</a> <a href="/zil/" target="_blank">zil</a> <a href="/zrx/" target="_blank">zrx</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+      (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+      ym(87979419, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+      });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/87979419" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+  </body>
+</html>
