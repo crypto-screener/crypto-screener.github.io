@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="https://crypto-screener.github.io/assets/icon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="crypto screener" />
+    <title>ANKR USDT скринер для скальпинга на фьючерсах Binance</title>
+    <style>
+      #about {
+        display: none;
+      }
+    </style>
+    <link rel="stylesheet" href="https://crypto-screener.github.io/futures/build/bundle.css?32">
+    <script defer src="https://crypto-screener.github.io/futures/build/bundle.js?32"></script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="about">
+      <div>
+        <img src="https://crypto-screener.github.io/assets/telegram.svg" alt="Telegram" class="icon">
+        <a href="https://t.me/screener_support" title="Telegram">screener_support</a> сообщения об ошибках
+      </div>
+      <div>
+        <img src="https://crypto-screener.github.io/assets/telegram.svg" alt="Telegram" class="icon">
+        <a href="https://t.me/tech_analysis_crypto_scalping" title="Telegram">tech_analysis_crypto_scalping</a> телеграм канал
+      </div>
+      <h1>ANKR USDT скринер для скальпинга на фьючерсах Binance</h1>
+
+      <h2>Когда может быть полезен</h2>
+      <p>Может использоваться как дополнительный инструмент для определения входа в сделку при пробое уровня,
+        отскоке от уровня, работе с плотностями.</p>
+
+      <h2>Как работает</h2>
+      <p>Для работы используется публичное API криптовалютной биржи Binance. Все данные по рынку фьючерсов. Список монет
+        синхронизируется при каждом запуске.</p>
+      <p>Между сессиями в локальном хранилище браузера сохраняются все отрисованные пользовательские фигуры,
+        установленные звуковые уведомления о ценовых уровнях, текущий выбранный таймфрейм, режим отображения
+        графиков, текущая выбранная монета.</p>
+
+      <h3>Список монет</h3>
+      <p>Таблица со списком всех монет в правой области окна. Список может быть отсортирован по имени монеты или по
+        возрастанию разницы в процентах от уровня или цены крупного лимитного ордера (плотности) до текущей цены.</p>
+      <p>Избранное (звездочка) - интересуемые монеты могут быть добавлены в отдельные списки (до пяти)</p>
+      <p>1h, 4h, 1d - разница в процентах между текущей ценой и ценой самого ближайшего уровня.
+        Возможна сортировка по возрастанию по одной из колонок.</p>
+      <p>Order - показывает разницу в процентах между текущей ценой и ценой ближайшего к текущей цене крупного
+        лимитного ордера (плотности), если такой ордер был обнаружен. Возможна сортировка по колонке в порядке
+        возрастания.</p>
+
+      <h3>ТОП ордеров</h3>
+      <p>Таблица под списком монет. Первая колонка объем ордера, вторая - цена, третья - разница в процентах между
+        текущей ценой и ценой ордера.</p>
+      <p>В топ выбираются только крупные ордера из диапазона +-5% от текущей цены. Самые крупные, объемом более, чем
+        средний пятиминутный объем за прошедшие 24 часа, подсвечиваются фиолетовым цветом (также отрисовываются фиолетовым
+        ценовым уровнем на графике).</p>
+
+      <h3>График</h3>
+      <p>Возможно отображение от одного до четырех графиков одной монеты в одном окне.</p>
+      <p>Автоматически отрисовываются уровни поддержки и сопротивления. Неактуальные уровни (которые цена
+        пересекла) меняют цвет на серый.</p>
+      <p>Доступно рисование нескольких видов фигур: отрезок, луч, ценовой уровень. Удаление фигуры осуществляется
+        правой кнопкой мыши, удаление всех пользовательских фигур - кнопкой в интерфейсе.</p>
+      <p>На дневном таймфрейме отображаются только дневные уровни, на четырехчасовом - дневные и четырехчасовые, на
+        часовом и меньше отображаются все уровни.</p>
+      <p>Уровни старших таймфремов на графике младших таймфреймов выделены толщиной линии, например на часовом
+        графике, часовые уровни - это линии толщиной 1 пиксель, четырехчасовые уровни - линии в 2 пикселя, дневные
+        уровни - 3 пикселя.</p>
+      <p>Фиолетовыми уровнями отрисовываются крупные лимитные ордера. Начало линии ордера находится в точке момента
+        выставления ордера в стакане. Если ордер был выставлен раньше, чем запущен скринер, то линия начинается с
+        момента включения скринера.</p>
+      <img src="https://crypto-screener.github.io/assets/help-ru.png" alt="Графики цен, топ ордеров" />
+
+      <h2>Горячие клавиши</h2>
+      <p>F1 - помощь</p>
+      <p>Esc - отмена рисования / закрытие диалогового окна</p>
+      <p>&larr; &rarr; - переключение таймфрейма выбранного графика</p>
+      <p>&uarr; &darr; - переключение между монетами в списке</p>
+      <p>Tab - переключение между графиками, если выбран режим отображения больше одного графика</p>
+      <p>+/- увеличение/уменьшение масштаба графика</p>
+
+      <div>
+        <span id="coin-list-switch">Монеты</span>
+        <div class="coin-list">
+          <a href="/futures/1000shib/" target="_blank">1000SHIB</a> <a href="/futures/1000xec/" target="_blank">1000XEC</a> <a href="/futures/1inch/" target="_blank">1INCH</a> <a href="/futures/aave/" target="_blank">AAVE</a> <a href="/futures/ada/" target="_blank">ADA</a> <a href="/futures/akro/" target="_blank">AKRO</a> <a href="/futures/algo/" target="_blank">ALGO</a> <a href="/futures/alice/" target="_blank">ALICE</a> <a href="/futures/alpha/" target="_blank">ALPHA</a> <a href="/futures/anc/" target="_blank">ANC</a> <a href="/futures/ankr/" target="_blank">ANKR</a> <a href="/futures/ant/" target="_blank">ANT</a> <a href="/futures/ape/" target="_blank">APE</a> <a href="/futures/api3/" target="_blank">API3</a> <a href="/futures/arpa/" target="_blank">ARPA</a> <a href="/futures/ar/" target="_blank">AR</a> <a href="/futures/ata/" target="_blank">ATA</a> <a href="/futures/atom/" target="_blank">ATOM</a> <a href="/futures/audio/" target="_blank">AUDIO</a> <a href="/futures/avax/" target="_blank">AVAX</a> <a href="/futures/axs/" target="_blank">AXS</a> <a href="/futures/bake/" target="_blank">BAKE</a> <a href="/futures/bal/" target="_blank">BAL</a> <a href="/futures/band/" target="_blank">BAND</a> <a href="/futures/bat/" target="_blank">BAT</a> <a href="/futures/bch/" target="_blank">BCH</a> <a href="/futures/bel/" target="_blank">BEL</a> <a href="/futures/blz/" target="_blank">BLZ</a> <a href="/futures/bnb/" target="_blank">BNB</a> <a href="/futures/bnx/" target="_blank">BNX</a> <a href="/futures/btc/" target="_blank">BTC</a> <a href="/futures/bts/" target="_blank">BTS</a> <a href="/futures/c98/" target="_blank">C98</a> <a href="/futures/celo/" target="_blank">CELO</a> <a href="/futures/celr/" target="_blank">CELR</a> <a href="/futures/chr/" target="_blank">CHR</a> <a href="/futures/chz/" target="_blank">CHZ</a> <a href="/futures/comp/" target="_blank">COMP</a> <a href="/futures/coti/" target="_blank">COTI</a> <a href="/futures/crv/" target="_blank">CRV</a> <a href="/futures/ctk/" target="_blank">CTK</a> <a href="/futures/ctsi/" target="_blank">CTSI</a> <a href="/futures/cvc/" target="_blank">CVC</a> <a href="/futures/dar/" target="_blank">DAR</a> <a href="/futures/dash/" target="_blank">DASH</a> <a href="/futures/dent/" target="_blank">DENT</a> <a href="/futures/dgb/" target="_blank">DGB</a> <a href="/futures/dodo/" target="_blank">DODO</a> <a href="/futures/doge/" target="_blank">DOGE</a> <a href="/futures/dot/" target="_blank">DOT</a> <a href="/futures/dusk/" target="_blank">DUSK</a> <a href="/futures/dydx/" target="_blank">DYDX</a> <a href="/futures/egld/" target="_blank">EGLD</a> <a href="/futures/enj/" target="_blank">ENJ</a> <a href="/futures/ens/" target="_blank">ENS</a> <a href="/futures/eos/" target="_blank">EOS</a> <a href="/futures/etc/" target="_blank">ETC</a> <a href="/futures/eth/" target="_blank">ETH</a> <a href="/futures/fil/" target="_blank">FIL</a> <a href="/futures/flm/" target="_blank">FLM</a> <a href="/futures/flow/" target="_blank">FLOW</a> <a href="/futures/ftm/" target="_blank">FTM</a> <a href="/futures/ftt/" target="_blank">FTT</a> <a href="/futures/gala/" target="_blank">GALA</a> <a href="/futures/gal/" target="_blank">GAL</a> <a href="/futures/gmt/" target="_blank">GMT</a> <a href="/futures/grt/" target="_blank">GRT</a> <a href="/futures/gtc/" target="_blank">GTC</a> <a href="/futures/hbar/" target="_blank">HBAR</a> <a href="/futures/hnt/" target="_blank">HNT</a> <a href="/futures/hot/" target="_blank">HOT</a> <a href="/futures/icp/" target="_blank">ICP</a> <a href="/futures/icx/" target="_blank">ICX</a> <a href="/futures/imx/" target="_blank">IMX</a> <a href="/futures/iost/" target="_blank">IOST</a> <a href="/futures/iota/" target="_blank">IOTA</a> <a href="/futures/iotx/" target="_blank">IOTX</a> <a href="/futures/jasmy/" target="_blank">JASMY</a> <a href="/futures/kava/" target="_blank">KAVA</a> <a href="/futures/klay/" target="_blank">KLAY</a> <a href="/futures/knc/" target="_blank">KNC</a> <a href="/futures/ksm/" target="_blank">KSM</a> <a href="/futures/lina/" target="_blank">LINA</a> <a href="/futures/link/" target="_blank">LINK</a> <a href="/futures/lit/" target="_blank">LIT</a> <a href="/futures/lpt/" target="_blank">LPT</a> <a href="/futures/lrc/" target="_blank">LRC</a> <a href="/futures/ltc/" target="_blank">LTC</a> <a href="/futures/luna/" target="_blank">LUNA</a> <a href="/futures/mana/" target="_blank">MANA</a> <a href="/futures/mask/" target="_blank">MASK</a> <a href="/futures/matic/" target="_blank">MATIC</a> <a href="/futures/mkr/" target="_blank">MKR</a> <a href="/futures/mtl/" target="_blank">MTL</a> <a href="/futures/near/" target="_blank">NEAR</a> <a href="/futures/neo/" target="_blank">NEO</a> <a href="/futures/nkn/" target="_blank">NKN</a> <a href="/futures/ocean/" target="_blank">OCEAN</a> <a href="/futures/ogn/" target="_blank">OGN</a> <a href="/futures/omg/" target="_blank">OMG</a> <a href="/futures/one/" target="_blank">ONE</a> <a href="/futures/ont/" target="_blank">ONT</a> <a href="/futures/people/" target="_blank">PEOPLE</a> <a href="/futures/qtum/" target="_blank">QTUM</a> <a href="/futures/ray/" target="_blank">RAY</a> <a href="/futures/reef/" target="_blank">REEF</a> <a href="/futures/ren/" target="_blank">REN</a> <a href="/futures/rlc/" target="_blank">RLC</a> <a href="/futures/rose/" target="_blank">ROSE</a> <a href="/futures/rsr/" target="_blank">RSR</a> <a href="/futures/rune/" target="_blank">RUNE</a> <a href="/futures/rvn/" target="_blank">RVN</a> <a href="/futures/sand/" target="_blank">SAND</a> <a href="/futures/sc/" target="_blank">SC</a> <a href="/futures/sfp/" target="_blank">SFP</a> <a href="/futures/skl/" target="_blank">SKL</a> <a href="/futures/snx/" target="_blank">SNX</a> <a href="/futures/sol/" target="_blank">SOL</a> <a href="/futures/srm/" target="_blank">SRM</a> <a href="/futures/stmx/" target="_blank">STMX</a> <a href="/futures/storj/" target="_blank">STORJ</a> <a href="/futures/sushi/" target="_blank">SUSHI</a> <a href="/futures/sxp/" target="_blank">SXP</a> <a href="/futures/theta/" target="_blank">THETA</a> <a href="/futures/tlm/" target="_blank">TLM</a> <a href="/futures/tomo/" target="_blank">TOMO</a> <a href="/futures/trb/" target="_blank">TRB</a> <a href="/futures/trx/" target="_blank">TRX</a> <a href="/futures/unfi/" target="_blank">UNFI</a> <a href="/futures/uni/" target="_blank">UNI</a> <a href="/futures/vet/" target="_blank">VET</a> <a href="/futures/waves/" target="_blank">WAVES</a> <a href="/futures/woo/" target="_blank">WOO</a> <a href="/futures/xem/" target="_blank">XEM</a> <a href="/futures/xlm/" target="_blank">XLM</a> <a href="/futures/xmr/" target="_blank">XMR</a> <a href="/futures/xrp/" target="_blank">XRP</a> <a href="/futures/xtz/" target="_blank">XTZ</a> <a href="/futures/yfi/" target="_blank">YFI</a> <a href="/futures/zec/" target="_blank">ZEC</a> <a href="/futures/zen/" target="_blank">ZEN</a> <a href="/futures/zil/" target="_blank">ZIL</a> <a href="/futures/zrx/" target="_blank">ZRX</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+      (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+      ym(87979419, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+      });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/87979419" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+  </body>
+</html>
